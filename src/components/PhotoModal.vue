@@ -61,12 +61,13 @@
 		}
 	}
 	.cancel-icon {
-		width: 40px;
-		height: 40px;
+		width: 30px;
+		height: 30px;
 		position: absolute;
 		z-index: 200;
 		top: 5%;
 		right: 5%;
+		color: white;
 	}
 }
 
