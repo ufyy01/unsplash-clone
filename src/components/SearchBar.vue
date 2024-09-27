@@ -44,7 +44,7 @@ export default {
 .search-bar {
 	@include header-absolutes;
 	border-radius: 7px;
-	padding: 4px 10px;
+	padding: 5px 10px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	background-color: white;
 	display: flex;

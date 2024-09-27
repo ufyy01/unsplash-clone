@@ -57,14 +57,13 @@ export default {
 		bottom: 0;
 		left: 0;
 		width: 100%;
-		height: 30%;
+		height: 40%;
 		background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
 		opacity: 1;
-		transition: opacity 0.3s ease-in-out;
+		transition: opacity 0.3s ease;
 	}
 	&:hover {
 		.details {
-			padding: 15px;
 			background-color: rgba(0, 0, 0, 0.5);
 		}
 		.tint {
@@ -82,6 +81,12 @@ export default {
 @media (max-width: 768px) {
 	.card {
 		width: 90vw;
+		.details {
+			font-size: 12px;
+			> *:first-child {
+				font-size: 17px;
+			}
+		}
 	}
 	.long-card,
 	.short-card {
