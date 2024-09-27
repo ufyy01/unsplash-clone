@@ -13,6 +13,9 @@ const getPhotos = () => {
 	const totalPages = ref<number>(0);
 
 	const load = async (filter: Filter) => {
+		photos.value = [];
+		loading.value = true;
+
 		try {
 			const accessKey = process.env.VUE_APP_UNSPLASH_ACCESS_KEY;
 			const baseUri = process.env.VUE_APP_BASE_URL;
@@ -40,8 +43,6 @@ const getPhotos = () => {
 			});
 			photos.value = response.data.results;
 			totalPages.value = response.data.total_pages;
-			console.log(response.data);
-			loading.value = false;
 		} catch (e: unknown) {
 			console.log(e);
 			if (e instanceof AxiosError) {
@@ -52,7 +53,11 @@ const getPhotos = () => {
 				error.value = "An unexpected error occurred";
 			}
 		} finally {
-			loading.value = false;
+			//I would usually not do this but for the purpose of the test to show the loading screen that is why the loading is been delayed by 2 seconds...
+
+			setTimeout(() => {
+				loading.value = false;
+			}, 2000);
 		}
 	};
 	return { photos, error, loading, load, totalPages };

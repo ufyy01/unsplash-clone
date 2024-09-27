@@ -3,7 +3,7 @@
 		@click="openModal = true"
 		class="card"
 		:class="(parseInt(index) + 1) % 2 !== 0 ? 'short-card' : 'long-card'">
-		<img :src="photo.urls.thumb" :alt="photo.slug" />
+		<img :src="photo.urls.small" :alt="photo.slug" />
 		<div class="details">
 			<p>{{ photo.user.name }}</p>
 			<p>{{ photo.user.location }}</p>
@@ -58,7 +58,7 @@ export default {
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.4);
+		background-color: rgba(0, 0, 0, 0.2);
 		opacity: 1;
 		transition: opacity 0.3s ease-in-out;
 	}

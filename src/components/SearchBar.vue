@@ -54,6 +54,7 @@ export default {
 		width: 90%;
 		height: 100%;
 		font-weight: 500;
+		margin-left: 20px;
 		&:focus {
 			border: none;
 			outline: none;
@@ -62,8 +63,8 @@ export default {
 	.search-icon {
 		position: absolute;
 		top: 30%;
-		left: 2%;
-		width: 15px;
+		left: 4%;
+		width: 16px;
 	}
 }
 </style>

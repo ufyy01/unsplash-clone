@@ -12,8 +12,9 @@
 			<h4 class="error-heading">{{ error }}</h4>
 			<p class="error-text">Opps! Something went wrong. Try again</p>
 		</div>
-		<div class="grid-container" v-else>
+		<div class="grid-container">
 			<photo-grid :photos="photos" :loading="loading" />
+
 			<div class="pagination" v-if="totalPages > 0">
 				<span>{{ filter.page }}/{{ totalPages }}</span>
 				<button @click="goBack"><Icon icon="subway:round-arrow-1" /></button>
@@ -88,6 +89,7 @@ export default {
 		};
 
 		watchEffect(() => {
+			filter;
 			load(filter);
 		});
 
@@ -128,6 +130,7 @@ export default {
 				border: none;
 				border-radius: 10px;
 				font-weight: 600;
+				color: black;
 			}
 			span {
 				font-size: 15px;

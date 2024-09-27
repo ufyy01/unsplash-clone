@@ -95,6 +95,7 @@ export default {
 	justify-content: center;
 	align-items: center;
 	z-index: 200;
+	overflow: hidden;
 
 	.text-box {
 		width: 90%;
