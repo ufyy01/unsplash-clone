@@ -62,4 +62,10 @@ export default {
 		height: 350px;
 	}
 }
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+	.long-card,
+	.short-card {
+		height: 380px;
+	}
+}
 </style>

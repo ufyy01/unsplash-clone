@@ -3,6 +3,7 @@
 		<div class="grid" v-if="loading || photos.length === 0">
 			<div
 				class="column"
+				:class="loadingColIndex === 2 ? 'spread' : ''"
 				v-for="(loadingColumn, loadingColIndex) in loadingColumns"
 				:key="loadingColIndex">
 				<loading-card
@@ -12,7 +13,11 @@
 			</div>
 		</div>
 		<div class="grid" v-else>
-			<div class="column" v-for="(column, colIndex) in columns" :key="colIndex">
+			<div
+				class="column"
+				:class="colIndex === 2 ? 'spread' : ''"
+				v-for="(column, colIndex) in columns"
+				:key="colIndex">
 				<photo-card
 					v-for="(photo, index) in column"
 					:key="index"
@@ -107,6 +112,18 @@ export default {
 			display: flex;
 			flex-direction: column;
 			gap: 25px;
+		}
+	}
+}
+
+@media only screen and (min-width: 820px) and (max-width: 1024px) {
+	.container {
+		.grid {
+			justify-content: center;
+			height: 100%;
+			.spread {
+				flex-direction: row;
+			}
 		}
 	}
 }

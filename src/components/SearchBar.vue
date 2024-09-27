@@ -53,6 +53,7 @@ export default {
 		font-size: 16px;
 		width: 90%;
 		height: 100%;
+		font-weight: 500;
 		&:focus {
 			border: none;
 			outline: none;

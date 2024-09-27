@@ -48,7 +48,7 @@ export default {
 	.details {
 		@include card-details;
 		> *:first-child {
-			font-size: 15px;
+			font-size: 18px;
 			margin-bottom: 3px;
 		}
 	}
@@ -86,6 +86,12 @@ export default {
 	.long-card,
 	.short-card {
 		height: 350px;
+	}
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+	.long-card,
+	.short-card {
+		height: 380px;
 	}
 }
 </style>

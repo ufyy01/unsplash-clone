@@ -10,9 +10,10 @@ import HomeView from "./views/HomeView.vue";
 * {
 	padding: 0;
 	margin: 0;
+	font-family: "Roboto", sans-serif;
 }
 #app {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	font-family: "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
