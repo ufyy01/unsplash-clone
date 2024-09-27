@@ -1,47 +1,68 @@
 <template>
-	<div class="header">
-		<div class="search-bar">
-			<input type="text" v-model="search" placeholder="Search for photo" />
-		</div>
+	<div class="search-bar">
+		<input
+			type="text"
+			:value="modelValue"
+			placeholder="Search for photo"
+			@keypress="onKeyPress"
+			required />
+		<Icon icon="ion:search-outline" class="search-icon" />
 	</div>
 </template>
 
 <script lang="ts">
 import { ref } from "vue";
+import { Icon } from "@iconify/vue";
 export default {
 	name: "searchBar",
-	setup() {
+	emits: ["update:modelValue"],
+	components: { Icon },
+	props: {
+		modelValue: { type: String },
+	},
+	setup(
+		props: { modelValue: string },
+		{ emit }: { emit: (event: "update:modelValue", value: string) => void }
+	) {
 		const search = ref("");
-		return { search };
+
+		const onKeyPress = (event: KeyboardEvent) => {
+			if (event.key === "Enter") {
+				const target = event.target as HTMLInputElement;
+				emit("update:modelValue", target.value);
+			}
+		};
+
+		return { search, onKeyPress };
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-.header {
-	height: 200px;
-	background-color: #dde2e8;
-	position: relative;
-	.search-bar {
-		width: 70%;
-		position: absolute;
-		bottom: 40%;
-		left: 14%;
-		border-radius: 10px;
-		padding: 4px 10px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-		background-color: white;
-		input {
-			padding: 15px 0;
+@import "@/styles/_globals.scss";
+
+.search-bar {
+	@include header-absolutes;
+	border-radius: 10px;
+	padding: 4px 10px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	background-color: white;
+	input {
+		padding: 15px 0;
+		border: none;
+		font-size: 16px;
+		width: 90%;
+		height: 100%;
+		&:focus {
 			border: none;
-			font-size: 16px;
-			width: 100%;
-			height: 100%;
-			&:focus {
-				border: none;
-				outline: none;
-			}
+			outline: none;
 		}
+	}
+	.search-icon {
+		position: absolute;
+		top: 30%;
+		left: 2%;
+		width: 15px;
 	}
 }
 </style>

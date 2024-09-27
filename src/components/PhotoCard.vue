@@ -1,5 +1,6 @@
 <template>
 	<div
+		@click="openModal = true"
 		class="card"
 		:class="(parseInt(index) + 1) % 2 !== 0 ? 'short-card' : 'long-card'">
 		<img :src="photo.urls.thumb" :alt="photo.slug" />
@@ -9,41 +10,46 @@
 		</div>
 		<div class="tint"></div>
 	</div>
+	<PhotoModal
+		:openModal="openModal"
+		:photo="photo"
+		@update:openModal="(value) => (openModal = value)" />
 </template>
 
 <script lang="ts">
+import { ref } from "vue";
+import PhotoModal from "./PhotoModal.vue";
+
 export default {
 	name: "photoCard",
 	props: ["photo", "index"],
+	components: { PhotoModal },
+
+	setup() {
+		const openModal = ref<boolean>(false);
+
+		return { openModal };
+	},
 };
 </script>
 
 <style lang="scss" scoped>
+@import "@/styles/_globals.scss";
+
 .card {
-	position: relative;
-	border-radius: 10px;
-	overflow: hidden;
-	height: 100%;
-	width: 280px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	@include card-style;
 	cursor: pointer;
 	img {
 		width: 100%;
+		height: 100%;
 		border-radius: 10px;
 		object-fit: cover;
 	}
 	.details {
-		position: absolute;
-		bottom: 20px;
-		left: 0;
-		padding-left: 15px;
-		color: white;
-		width: 100%;
-		text-align: start;
-		z-index: 10;
-		font-size: 12px;
+		@include card-details;
 		> *:first-child {
 			font-size: 15px;
+			margin-bottom: 3px;
 		}
 	}
 	.tint {
@@ -67,10 +73,10 @@ export default {
 	}
 }
 .short-card {
-	height: 250px;
+	height: 300px;
 }
 .long-card {
-	height: 350px;
+	height: 380px;
 }
 
 @media (max-width: 768px) {

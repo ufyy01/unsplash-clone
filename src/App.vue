@@ -3,8 +3,6 @@ import HomeView from "./views/HomeView.vue";
 </script>
 
 <template>
-	<!-- <nav><router-link to="/">Home</router-link></nav>
-	<router-view /> -->
 	<HomeView />
 </template>
 
