@@ -48,7 +48,7 @@ export default {
 	.details {
 		@include card-details;
 		> *:first-child {
-			font-size: 18px;
+			font-size: 15px;
 			margin-bottom: 3px;
 		}
 	}
