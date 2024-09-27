@@ -43,6 +43,7 @@ const getPhotos = () => {
 			});
 			photos.value = response.data.results;
 			totalPages.value = response.data.total_pages;
+			console.log(response);
 		} catch (e: unknown) {
 			console.log(e);
 			if (e instanceof AxiosError) {
