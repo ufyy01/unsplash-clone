@@ -53,11 +53,7 @@ const getPhotos = () => {
 				error.value = "An unexpected error occurred";
 			}
 		} finally {
-			//I would usually not do this but for the purpose of the test to show the loading screen that is why the loading is been delayed by 2 seconds...
-
-			setTimeout(() => {
-				loading.value = false;
-			}, 2000);
+			loading.value = false;
 		}
 	};
 	return { photos, error, loading, load, totalPages };
