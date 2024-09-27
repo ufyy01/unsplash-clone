@@ -54,11 +54,11 @@ export default {
 	}
 	.tint {
 		position: absolute;
-		top: 0;
+		bottom: 0;
 		left: 0;
 		width: 100%;
-		height: 100%;
-		background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+		height: 50%;
+		background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 		opacity: 1;
 		transition: opacity 0.3s ease-in-out;
 	}
