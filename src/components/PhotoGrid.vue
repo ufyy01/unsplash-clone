@@ -116,7 +116,7 @@ export default {
 	}
 }
 
-@media only screen and (min-width: 820px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
 	.container {
 		.grid {
 			justify-content: center;

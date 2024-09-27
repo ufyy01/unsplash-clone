@@ -1,12 +1,12 @@
 <template>
 	<div class="search-bar">
+		<Icon icon="ion:search-outline" class="search-icon" />
 		<input
 			type="text"
 			:value="modelValue"
 			placeholder="Search for photo"
 			@keypress="onKeyPress"
 			required />
-		<Icon icon="ion:search-outline" class="search-icon" />
 	</div>
 </template>
 
@@ -43,10 +43,12 @@ export default {
 
 .search-bar {
 	@include header-absolutes;
-	border-radius: 10px;
+	border-radius: 7px;
 	padding: 4px 10px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	background-color: white;
+	display: flex;
+	align-items: center;
 	input {
 		padding: 15px 0;
 		border: none;
@@ -61,10 +63,8 @@ export default {
 		}
 	}
 	.search-icon {
-		position: absolute;
-		top: 30%;
-		left: 4%;
 		width: 16px;
+		margin-left: 7px;
 	}
 }
 </style>
